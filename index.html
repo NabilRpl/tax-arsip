@@ -19,17 +19,128 @@ body {
 
 /* LOGIN DAN REGISTRASI */
 .auth {
-    max-width: 400px;
-    margin: 60px auto;
-    padding: 30px;
-    background: white;
-    border-radius: 15px;
-    box-shadow: 0 5px 25px #0002;
+    width: calc(100% - 32px);
+    max-width: 360px;
+    margin: 45px auto;
+    padding: 24px 22px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    box-shadow: 0 15px 45px rgba(15, 23, 42, 0.12);
+    box-sizing: border-box;
+    animation: loginMasuk 0.5s ease;
 }
 
 .auth h1 {
-    color: #2563eb;
+    color: #1e40af;
     text-align: center;
+    font-size: 23px;
+    margin: 0 0 22px;
+    letter-spacing: 0.3px;
+}
+
+/* Form login AMS TAX ARSIP */
+#halamanLogin.auth label {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    color: #334155;
+    margin-bottom: 6px;
+}
+
+#halamanLogin.auth input {
+    width: 100%;
+    height: 40px;
+    padding: 0 12px;
+    margin-bottom: 14px;
+    font-size: 13px;
+    border: 1px solid #cbd5e1;
+    border-radius: 9px;
+    box-sizing: border-box;
+    outline: none;
+}
+
+#halamanLogin.auth input:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.10);
+}
+
+#halamanLogin.auth .tombol-utama {
+    width: 100%;
+    min-height: 40px;
+    padding: 9px 14px;
+    border: none;
+    border-radius: 9px;
+    background: #2563eb;
+    color: white;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+#halamanLogin.auth .tombol-utama:hover {
+    background: #1d4ed8;
+}
+
+#halamanLogin.auth #pesan {
+    font-size: 12px;
+    text-align: center;
+    margin-top: 12px;
+}
+
+/* Background halaman login */
+body:has(#halamanLogin) {
+    background: linear-gradient(
+        135deg,
+        #0f172a,
+        #172554,
+        #1e3a8a
+    );
+    min-height: 100vh;
+}
+
+/* Cahaya lembut di belakang login */
+body:has(#halamanLogin)::before {
+    content: "";
+    position: fixed;
+    width: 220px;
+    height: 220px;
+    top: 8%;
+    left: -80px;
+    background: rgba(59, 130, 246, 0.18);
+    filter: blur(70px);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+/* Pastikan kartu berada di atas background */
+#halamanLogin.auth {
+    position: relative;
+    z-index: 1;
+}
+
+/* Tampilan lebih ringkas di HP */
+@media (max-width: 480px) {
+    #halamanLogin.auth {
+        margin: 35px auto;
+        padding: 21px 18px;
+        max-width: 340px;
+    }
+
+    #halamanLogin.auth h1 {
+        font-size: 21px;
+    }
+}
+
+@keyframes loginMasuk {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 input {
